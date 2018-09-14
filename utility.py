@@ -7,8 +7,8 @@ import cv2
 import numpy as np
 import tensorflow as tf
 
-TRAIN_SIZE = 50000
-VALID_SIZE = 20000
+TRAIN_SIZE = 50
+VALID_SIZE = 200
 CHAR_SET = '123456789ABCDEFGHIJKLMNPQRSTUVWXYZ'
 CHAR_NUM = 5
 IMG_HEIGHT = 60
@@ -21,6 +21,10 @@ TRAIN_VALIDATE_NAME = 'validate_data.tfrecords'
 LOG_DIR = './log/'
 MODEL_DIR = './model/'
 BATCH_SIZE = 128
+
+
+
+
 
 
 #生成不落地的验证码图片
@@ -137,8 +141,7 @@ def inputs(train, batch_size, epoch):
 
     return images, sparse_labels
 
-
-
+    
 if __name__ == '__main__':
     print('在%s生成%d个验证码' % (TRAIN_IMG_PATH, TRAIN_SIZE))
     gen_verifycode_img(TRAIN_IMG_PATH, TRAIN_SIZE, CHAR_SET, CHAR_NUM, IMG_HEIGHT, IMG_WIDTH, FONT_SIZES)
