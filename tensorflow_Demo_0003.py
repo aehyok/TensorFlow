@@ -19,6 +19,7 @@ def evaluate(sess,X,Y):
 
 #在一个绘画对象中启动数据流图，搭建流程
 with tf.Session() as sess:
+    
     tf.initialize_all_variables().run()
 
     X,Y=inputs()

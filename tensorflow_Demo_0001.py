@@ -1,8 +1,28 @@
-# 随机数字案例解析
-# https://blog.csdn.net/yue008/article/details/61626726
-
-
 import tensorflow as tf
+
+
+#multiply和 https://www.cnblogs.com/AlvinSui/p/8987707.html
+x1=tf.constant([[1.0,2.0,3.0],[1.0,2.0,3.0],[1.0,2.0,3.0]])
+y1=tf.constant([[0,0,1.0],[0,0,1.0],[0,0,1.0]])
+
+z1=tf.multiply(x1,y1)
+#Session用于运行代码
+sess = tf.Session()
+result1 = sess.run(z1)
+
+print('result1')
+print(result1)
+
+x2=tf.constant([[1.0,2.0,3.0],[1.0,2.0,3.0],[1.0,2.0,3.0]])
+y2=tf.constant([[0,0,1.0],[0,0,1.0],[0,0,1.0]])
+
+z2=tf.matmul(x2,y2)
+#Session用于运行代码
+sess2 = tf.Session()
+result22 = sess2.run(z2)
+
+print('result22')
+print(result22)
 
 #定义两个常量（边）
 a = tf.constant(5,name='input_a')
@@ -19,6 +39,10 @@ e = tf.add(c,d,name='add_e')
 sess = tf.Session()
 result = sess.run(e)
 
+result2 = sess.run(z1)
+
+print(result2)
+
 print(result)  #输出结果
 
 #将数据流图的描述写入my_graph文件夹下面
@@ -30,14 +54,4 @@ sess.close()
 
 
 #在TensorFlow中，所有在节点之间传递的数据都为Tensor对象。
-
-t_0=50                                     #视为0阶张量或“标量”
-t_1=[b"aaaaaa",b"bbbbbbbbb",b"cccccc"]     #视为1阶张量或“向量”  
-t_2=[[True,False,False],                   #视为2阶张量
-     [True,False,False],
-     [True,False,False]]
-
-t_3=[[[0,0],[0,1],[0,2]],                  #视为2阶张量
-     [[0,0],[0,1],[0,2]],
-     [[0,0],[0,1],[0,2]]]
 
